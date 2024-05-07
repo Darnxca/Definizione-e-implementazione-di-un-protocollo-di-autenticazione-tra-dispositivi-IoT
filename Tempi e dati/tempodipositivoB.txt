@@ -1,0 +1,89 @@
+Esecuzione 1:
+puf: 115.820ms
+chiave: 2.081s
+Registrazione: 115.210ms
+AvvioAutenticazione: 78.802ms
+Verifica Mac B: 60.657ms
+Ottenimento nonce AB: 36.803ms
+Verifica mac messaggio BA: 107.447ms
+Autenticazione B: 51.016ms
+
+Esecuzione 2:
+puf: 118.392ms
+chiave: 2.080s
+Registrazione: 130.590ms
+AvvioAutenticazione: 94.883ms
+Verifica Mac B: 59.667ms
+Ottenimento nonce AB: 46.566ms
+Verifica mac messaggio BA: 104.363ms
+Autenticazione B: 50.312ms
+
+Esecuzione 3:
+puf: 120.015ms
+chiave: 2.079s
+Registrazione: 98.789ms
+AvvioAutenticazione: 76.559ms
+Verifica Mac B: 57.404ms
+Ottenimento nonce AB: 44.696ms
+Verifica mac messaggio BA: 107.063ms
+Autenticazione B: 60.549ms
+
+Esecuzione 4:
+puf: 116.701ms
+chiave: 2.081s
+Registrazione: 112.845ms
+AvvioAutenticazione: 97.665ms
+Verifica Mac B: 58.414ms
+Ottenimento nonce AB: 40.573ms
+Verifica mac messaggio BA: 107.216ms
+Autenticazione B: 69.803ms
+
+Esecuzione 5:
+puf: 117.905ms
+chiave: 2.080s
+Registrazione: 119.304ms
+AvvioAutenticazione: 95.382ms
+Verifica Mac B: 59.412ms
+Ottenimento nonce AB: 42.217ms
+Verifica mac messaggio BA: 105.746ms
+Autenticazione B: 58.026ms
+
+Esecuzione 6:
+puf: 119.623ms
+chiave: 2.080s
+Registrazione: 97.972ms
+AvvioAutenticazione: 85.098ms
+Verifica Mac B: 59.548ms
+Ottenimento nonce AB: 46.086ms
+Verifica mac messaggio BA: 105.151ms
+Autenticazione B: 51.716ms
+
+Esecuzione 7:
+puf: 121.124ms
+chiave: 2.081s
+Registrazione: 122.157ms
+AvvioAutenticazione: 87.681ms
+Verifica Mac B: 60.883ms
+Ottenimento nonce AB: 46.195ms
+Verifica mac messaggio BA: 105.911ms
+Autenticazione B: 56.292ms
+
+Esecuzione 8:
+puf: 118.874ms
+chiave: 2.079s
+Registrazione: 127.680ms
+AvvioAutenticazione: 90.44ms
+Verifica Mac B: 57.561ms
+Ottenimento nonce AB: 47.94ms
+Verifica mac messaggio BA: 104.092ms
+Autenticazione B: 65.43ms
+
+Esecuzione 9:
+puf: 116.305ms
+chiave: 2.080s
+Registrazione: 129.815ms
+AvvioAutenticazione: 94.199ms
+Verifica Mac B: 61.309ms
+Ottenimento nonce AB: 48.27ms
+Verifica mac messaggio BA: 106.432ms
+Autenticazione B: 69.927ms

@@ -1,0 +1,3 @@
+Andare su : https://etherscan.io/gastracker e vedere il prezzo medio di gwei
+andare su: https://eth-converter.com/ inserire il prezzo gwei e prendere il valore di ether
+per capire quanti ether utilizzi fare gas per valore ether

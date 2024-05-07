@@ -1,0 +1,103 @@
+eth_accounts
+hardhat_metadata (20)
+eth_blockNumber
+eth_getBlockByNumber
+eth_feeHistory
+eth_maxPriorityFeePerGas - Method not supported
+eth_sendTransaction
+  Contract deployment: Contratto_Registrazione_Autenticazione
+  Contract address:    0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Transaction:         0x4fbe10aa275af62d2b94fc0bb69ebc23eaefd269e73b7a8791087bae1895ce49
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            2162469 of 30000000
+  Block #1:            0x12ed2ce371071d27516f261e60118d6c7eee730879a9868ca130552068aa2c2b
+
+eth_getTransactionByHash
+eth_getTransactionReceipt
+eth_blockNumber (2)
+eth_feeHistory
+eth_sendTransaction
+  Contract call:       Contratto_Registrazione_Autenticazione#registrazioneDispositivoIoT
+  Transaction:         0xeda484be50118e8da3efed5942d41a747aee9638bc10f5681a99a0e22f7a0170
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            548980 of 30000000
+  Block #2:            0x073f0e72433391a25811818dd7d468a52d784c91c5ac534417c8a1c67ae25f4b
+
+eth_getTransactionByHash
+eth_blockNumber
+eth_feeHistory
+eth_sendTransaction
+  Contract call:       Contratto_Registrazione_Autenticazione#registrazioneDispositivoIoT
+  Transaction:         0x80e127f04d9ef798fd74f888c6864d15237b71a44e0e1f42c2c65fa401e149c2
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            548980 of 30000000
+  Block #3:            0x5db2b9fe4f0e9d16ded97c4e4ff26d1c75d1d551233e4464f7c1fa5632725d65
+
+eth_getTransactionByHash
+eth_call
+  Contract call:       Contratto_Registrazione_Autenticazione#getInfoDispositivoIoT
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+eth_call
+  Contract call:       Contratto_Registrazione_Autenticazione#getInfoDispositivoIoT
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+eth_call
+  Contract call:       Contratto_Registrazione_Autenticazione#getCIDs
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+eth_blockNumber
+eth_feeHistory
+eth_sendTransaction
+  Contract call:       Contratto_Registrazione_Autenticazione#avviaAutenticazione
+  Transaction:         0x0032e94518262039e6099f9ce939851978980be6f42dddcef2739ce14a4a20b6
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            264379 of 30000000
+  Block #4:            0xcc7f08f74b85227769d70c0c2114a93cbc7cf3cb1806f94f767328d76d570de6
+
+eth_getTransactionByHash
+eth_call
+  Contract call:       Contratto_Registrazione_Autenticazione#ottieniDatiAutenticazione
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+eth_blockNumber
+eth_feeHistory
+eth_sendTransaction
+  Contract call:       Contratto_Registrazione_Autenticazione#completaAutenticazioneServer
+  Transaction:         0x8620edd7dc2a73c514b0cd76894f85f347a9a3380c2fae2257aecfe531a8a832
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            57005 of 30000000
+  Block #5:            0xeaf1b83fda9d0aa2da0810f4c0e364e4645a7b84e481e216ec208b110078ab17
+
+eth_getTransactionByHash
+eth_blockNumber
+eth_feeHistory
+eth_sendTransaction
+  Contract call:       Contratto_Registrazione_Autenticazione#completaAutenticazioneServer
+  Transaction:         0x7782c58637930ee92cd106e03c0d33bedc8276d8baf6f262c1d8842e568da199
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            39783 of 30000000
+  Block #6:            0x33a363276fcc4fe30525c265fd2a73b5fa34650a20a3ef9e990b27bcbcd65a52
+
+eth_getTransactionByHash
+eth_call
+  Contract call:       Contratto_Registrazione_Autenticazione#autenticazioneStabilita
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  deployed to  0x5FbDB2315678afecb367f032d93F642f64180aa3

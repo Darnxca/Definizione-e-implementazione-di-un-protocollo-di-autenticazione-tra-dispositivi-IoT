@@ -1,0 +1,107 @@
+Esecuzione 1:
+puf: 117.582ms
+chiave: 2.079s
+Registrazione: 105.454ms
+InvioDatiB: 108.268ms
+Generazione messaggio ServerA: 122.174ms
+Verifica mac del Server A: 85.932ms
+Generazione messaggio e mac BA: 51.816ms
+Verifica messaggio madnato dal server B: 51.925ms
+conferma Autenticazione A: 70.601ms
+start: 5.340s
+
+Esecuzione 2:
+puf: 119.391ms
+chiave: 2.080s
+Registrazione: 96.009ms
+InvioDatiB: 129.536ms
+Generazione messaggio ServerA: 120.57ms
+Verifica mac del Server A: 77.537ms
+Generazione messaggio e mac BA: 52.441ms
+Verifica messaggio madnato dal server B: 51.534ms
+conferma Autenticazione A: 49.667ms
+start: 5.337s
+
+Esecuzione 3:
+puf: 116.24ms
+chiave: 2.080s
+Registrazione: 124.926ms
+InvioDatiB: 109.79ms
+Generazione messaggio ServerA: 122.778ms
+Verifica mac del Server A: 78.103ms
+Generazione messaggio e mac BA: 51.77ms
+Verifica messaggio madnato dal server B: 52.985ms
+conferma Autenticazione A: 50.43ms
+start: 5.453s
+
+Esecuzione 4:
+puf: 116.394ms
+chiave: 2.081s
+Registrazione: 124.895ms
+InvioDatiB: 123.39ms
+Generazione messaggio ServerA: 122.53ms
+Verifica mac del Server A: 98.91ms
+Generazione messaggio e mac BA: 52.02ms
+Verifica messaggio madnato dal server B: 55.272ms
+conferma Autenticazione A: 67.938ms
+start: 5.481s
+
+Esecuzione 5:
+puf: 117.58ms
+chiave: 2.080s
+Registrazione: 120.45ms
+InvioDatiB: 166.775ms
+Generazione messaggio ServerA: 120.703ms
+Verifica mac del Server A: 93.926ms
+Generazione messaggio e mac BA: 52.219ms
+Verifica messaggio madnato dal server B: 53.161ms
+conferma Autenticazione A: 39.527ms
+start: 5.406s
+
+Esecuzione 6:
+puf: 121.003ms
+chiave: 2.080s
+Registrazione: 137.409ms
+InvioDatiB: 115.485ms
+Generazione messaggio ServerA: 119.479ms
+Verifica mac del Server A: 104.572ms
+Generazione messaggio e mac BA: 54.115ms
+Verifica messaggio madnato dal server B: 58.781ms
+conferma Autenticazione A: 79.739ms
+start: 5.442s
+
+Esecuzione 7:
+puf: 119.151ms
+chiave: 2.080s
+Registrazione: 122.88ms
+InvioDatiB: 119.002ms
+Generazione messaggio ServerA: 119.239ms
+Verifica mac del Server A: 54.712ms
+Generazione messaggio e mac BA: 50.689ms
+Verifica messaggio madnato dal server B: 51.189ms
+conferma Autenticazione A: 37.811ms
+start: 5.320s
+
+Esecuzione 8:
+puf: 120.403ms
+chiave: 2.080s
+Registrazione: 136.576ms
+InvioDatiB: 118.963ms
+Generazione messaggio ServerA: 119.955ms
+Verifica mac del Server A: 79.691ms
+Generazione messaggio e mac BA: 54.39ms
+Verifica messaggio madnato dal server B: 54.54ms
+conferma Autenticazione A: 35.896ms
+start: 5.372s
+
+Esecuzione 9:
+puf: 118.084ms
+chiave: 2.080s
+Registrazione: 108.868ms
+InvioDatiB: 119.704ms
+Generazione messaggio ServerA: 122.794ms
+Verifica mac del Server A: 73.839ms
+Generazione messaggio e mac BA: 60.506ms
+Verifica messaggio madnato dal server B: 55.182ms
+conferma Autenticazione A: 70.361ms
+start: 5.409s

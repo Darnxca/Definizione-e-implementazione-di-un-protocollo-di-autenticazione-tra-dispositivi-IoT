@@ -1,0 +1,220 @@
+/*
+*  N = Dispositivo Iot
+*  S = Authentication Server
+*  B = Blockchain
+*  I = Ipfs server
+*/
+
+
+usertype helperdata;
+usertype id;
+usertype dump;
+usertype puf;
+usertype string;
+usertype key;
+
+hashfunction SHA256;
+hashfunction HMAC;
+
+secret dumpA: dump;
+secret dumpB: dump;
+secret CID: string;
+secret keyServer: key;
+
+const pufResponse: Function;
+const fuzzyEstractor: Function;
+const prk: Function;
+const messaggio: Function;
+
+secret ninitA, ninitB : Nonce;
+secret idA, idB: id;
+secret helperdataA, helperdataB: helperdata;
+
+protocol Autenticazione(NodeA, NodeB, ServerAutenticazioneB, ServerAutenticazioneA) {
+	role NodeA {
+		macro Ri = pufResponse(dumpA);
+		macro Ki = fuzzyEstractor(Ri, helperdataA);
+
+		macro prkA = prk(HMAC(ninitA, Ki));
+	
+		
+		var MA,oldDigest: Ticket;
+		const nonceSA, nonceSB: Nonce;
+		const idB: id;
+
+		macro Rj = pufResponse(dumpB); macro Kj = fuzzyEstractor(Rj, helperdataB); macro prkB = prk(HMAC(ninitB, Kj));
+		
+
+		recv_1(ServerAutenticazioneB, NodeA, { ServerAutenticazioneB, {MA}prkA, {oldDigest}prkA }k(ServerAutenticazioneB, NodeA));
+
+		macro newMA = {messaggio(idA, idB, ninitA, nonceSA, nonceSB)}prkA;
+		macro newDigest = {SHA256(idA, {newMA}prkA, Ki, nonceSA)}prkA ;
+	
+		match(oldDigest , newDigest );
+
+		fresh nonceA, nonceAB: Nonce;
+
+		macro MSA = { messaggio(idA, nonceSA, nonceA) }prkA;
+		macro DigestMSA = {SHA256(idA, {MSA}prkA, Ki, nonceA)}prkA ;
+
+		send_2(NodeA, ServerAutenticazioneA, {NodeA, MSA, DigestMSA, idA, helperdataA}k(NodeA, ServerAutenticazioneA) );
+
+		const MB: string;
+		macro MBA = { messaggio(idA, nonceA, nonceAB) }prkA;
+		macro DigestMB = { SHA256(MB, nonceSB)}nonceSB;
+		macro DigestMBA = { SHA256(MBA, nonceAB)}nonceSB;
+
+		
+		send_3(NodeA, NodeB, {NodeA, MB,  MBA, DigestMB, DigestMBA}k(NodeA, NodeB) );
+
+		var digestConferma: Ticket;
+		recv_7(NodeB, NodeA, {digestConferma}k(NodeB, NodeA));
+
+		macro newdigestConferma = { SHA256(idA, idB, nonceAB )}nonceSB;
+
+		match(digestConferma , newdigestConferma );
+
+		claim(NodeA, Secret, MA);
+		claim(NodeA, Secret,oldDigest);
+		claim(NodeA,Alive);
+		claim(NodeA,Weakagree);
+		claim(NodeA ,Niagree);
+		claim(NodeA ,Nisynch);
+	};
+
+	role ServerAutenticazioneA{		
+		var idA: id;
+		var helperdataA: helperdata;
+		
+		
+		
+		macro Ri = pufResponse(dumpA);
+		macro Ki = fuzzyEstractor(Ri, helperdataA);
+		macro prkA = prk(HMAC(ninitA, Ki));
+		
+		// Otteniamento dati dalla block chaib e scambio di chiavi con server b per poter decriptare i valori salvati su di essi
+		var  ninitA,nonceSA, nonceSB, nonceA: Nonce;
+		var  serverhost: string;
+		var MSA, oldDigestMSA: Ticket;
+		recv_2(NodeA, ServerAutenticazioneA, {NodeA, MSA, oldDigestMSA , idA, helperdataA}k(NodeA, ServerAutenticazioneA) );
+
+		macro newMSA = { messaggio(idA, nonceSA, nonceA) }prkA;
+		macro newDigestMSA = {SHA256(idA, {newMSA}prkA, Ki, nonceA)}prkA ;
+
+		match(oldDigestMSA , newDigestMSA );
+
+		claim(ServerAutenticazioneA, Secret,MSA);
+		claim(ServerAutenticazioneA, Secret,oldDigestMSA);
+		claim(ServerAutenticazioneA,Alive);
+		claim(ServerAutenticazioneA,Weakagree);
+		claim(ServerAutenticazioneA ,Niagree);
+		claim(ServerAutenticazioneA ,Nisynch);
+		
+	};
+	
+	role ServerAutenticazioneB {
+		macro Ri = pufResponse(dumpA);
+		macro Ki = fuzzyEstractor(Ri, helperdataA);
+
+		macro Rj = pufResponse(dumpB);
+		macro Kj = fuzzyEstractor(Rj, helperdataB);
+
+		macro prkA = prk(HMAC(ninitA, Ki));
+		macro prkB = prk(HMAC(ninitB, Kj));
+		
+		
+		fresh nonceSA, nonceSB: Nonce;
+		const serverhost: string;
+
+		macro MA = {messaggio(idA, idB, ninitA, nonceSA, nonceSB)}prkA;
+
+		send_1(ServerAutenticazioneB, NodeA, {ServerAutenticazioneB, MA, {SHA256(idA, MA, Ki, nonceSA)}prkA }k(ServerAutenticazioneB, NodeA));
+
+		var nonceAB, nonceA: Nonce;
+		var MB: string; 
+
+		recv_4(NodeB, ServerAutenticazioneB,{NodeB,  MBA, DigestMBA}k(NodeB, ServerAutenticazioneB) );
+
+		macro newMBA = { messaggio(idA, nonceA, nonceAB) }prkA;
+		macro newDigestMBA = { SHA256(MBA, nonceAB)}nonceSB;
+
+		match(DigestMBA , newDigestMBA );
+
+		fresh tempNonce: Nonce;
+
+		macro messAB = {messaggio(idB, tempNonce, nonceAB)}prkB;
+		macro DigestMessAB = { SHA256(messAB, nonceAB)}prkB;
+
+		send_5(ServerAutenticazioneB, NodeB, {ServerAutenticazioneB, messAB, DigestMessAB}k(ServerAutenticazioneB, NodeB));
+
+		const nonceB: Nonce;
+		var MSBC, DigestMSBC: Ticket;
+
+		recv_6(NodeB, ServerAutenticazioneB,{NodeB,  MSBC, DigestMSBC}k(NodeB, ServerAutenticazioneB) );
+
+		macro newMSBC = {messaggio(idB, nonceB, nonceSB)}prkB;
+		macro newDigestMSBC = { SHA256(newMSBC, nonceB)}prkB;
+		match(DigestMSBC , newDigestMSBC );
+	
+		claim(ServerAutenticazioneB,Alive);
+		claim(ServerAutenticazioneB,Weakagree);
+		claim(ServerAutenticazioneB ,Niagree);
+		claim(ServerAutenticazioneB ,Nisynch);
+		
+	};
+
+
+	role NodeB {
+		macro Rj = pufResponse(dumpB);
+		macro Kj = fuzzyEstractor(Rj, helperdataB);
+		macro prkB = prk(HMAC(ninitB, Kj));
+
+		
+		macro Ri = pufResponse(dumpA);macro Ki = fuzzyEstractor(Ri, helperdataA);macro prkA = prk(HMAC(ninitA, Ki));
+
+		var MB, MBA, DigestMB, DigestMBA: Ticket;
+		const nonceSB, nonceAB, nonceA, nonceSA: Nonce;
+
+		recv_3(NodeA, NodeB, {NodeA, MB, MBA, DigestMB, DigestMBA}k(NodeA, NodeB) );
+		
+		macro newDigestMB = { SHA256(MB, nonceSB)}nonceSB;
+
+		match(DigestMB , newDigestMB );
+
+
+		claim(NodeB, Secret, MA);
+		claim(NodeB, Secret,DigestMB);
+		
+
+		send_4(NodeB, ServerAutenticazioneB,{NodeB,  MBA, DigestMBA}k(NodeB, ServerAutenticazioneB) );
+
+		var tempNonce: Nonce;
+		var messAB, DigestMessAB: Ticket;
+
+
+		recv_5(ServerAutenticazioneB, NodeB, {ServerAutenticazioneB, messAB, DigestMessAB}k(ServerAutenticazioneB, NodeB));
+
+		
+		macro newMessAB = {messaggio(idB, tempNonce, nonceAB)}prkB;
+		macro newDigestMessAB = { SHA256(newMessAB, nonceAB)}prkB;
+
+		match(DigestMessAB , newDigestMessAB );
+
+		fresh nonceB: Nonce;
+
+		macro MSBC = {messaggio(idB, nonceB, nonceSB )}prkB;
+		macro DigestMSBC = { SHA256(MSBC, nonceB)}prkB;
+
+		send_6(NodeB, ServerAutenticazioneB,{NodeB,  MSBC, DigestMSBC}k(NodeB, ServerAutenticazioneB) );
+		
+		macro digestConferma = { SHA256(idA, idB, nonceAB )}nonceSB;
+		send_7(NodeB, NodeA, {digestConferma}k(NodeB, NodeA));
+		
+		claim(NodeB,Alive);
+		claim(NodeB,Weakagree);
+		claim(NodeB ,Niagree);
+		claim(NodeB ,Nisynch);
+	};
+
+
+};

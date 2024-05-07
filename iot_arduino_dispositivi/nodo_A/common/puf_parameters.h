@@ -1,0 +1,35 @@
+#ifndef PUF_PARAMETERS_H
+#define PUF_PARAMETERS_H
+
+#define PUF_SIZE    304U
+#define PUF_SIZE_STR PUF_SIZE * 2 + 1
+#define FE_KEY_SIZE 16U
+#define NONCE_SIZE 6U
+#define ID_SIZE 4U
+#define MSG_A_SIZE 52U
+#define MSG_A_CONC_SIZE 74U
+#define MSG_SA_SIZE 22U
+#define MSG_SA_CONC_SIZE 28U
+
+#define MSG_B_SIZE 26U
+#define MSG_B_CONC_SIZE 32U
+#define MSG_SB_SIZE 16U
+#define MSG_SB_CONC_SIZE 22U
+
+#define MSG_BA_SIZE 16U
+#define MSG_BA_CONC_SIZE 22U
+
+#define CONF_AUT_SIZE 14U
+
+#define DIGEST_SIZE 32U
+
+#define CS_LEN_BIT  152
+#define CS_LEN_BYTE 19
+#define CW_LEN_BIT  2432
+
+#ifndef PLAT_ARDUINO
+#define NOINIT_OFFSET   0x1F6
+#define SRAM_OFFSET     ((NOINIT_OFFSET - 0x100) * 2)
+#endif // PLAT_ARDUINO
+
+#endif // PUF_PARAMETERS_H
