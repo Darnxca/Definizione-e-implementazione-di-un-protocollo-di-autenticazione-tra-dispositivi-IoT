@@ -61,3 +61,5 @@ Il progetto è organizzato nelle seguenti directory:
     - **/getCIDs (POST)**: Questo endpoint ottiene i CID dei dispositivi specificati. Richiede l'indirizzo del dispositivo e gli ID dei due dispositivi. Restituisce i CID ottenuti.
 
 5. **c_code**: Questa cartella contiene i codici sorgente C per eseguire operazioni di cifratura e generazioni delle chiavi.
+
+**NOTA**: nel file autenticazione.js in chhiaveA e chiaveB sono salvate la chiave del disposito arduino A e dell'arduino B ottenute durante il loro enrollment.
