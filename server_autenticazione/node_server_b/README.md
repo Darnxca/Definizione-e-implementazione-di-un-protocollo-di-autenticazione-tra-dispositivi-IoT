@@ -62,4 +62,4 @@ Il progetto è organizzato nelle seguenti directory:
 
 5. **c_code**: Questa cartella contiene i codici sorgente C per eseguire operazioni di cifratura e generazioni delle chiavi.
 
-**NOTA**: nel file autenticazione.js in chhiaveA e chiaveB sono salvate la chiave del disposito arduino A e dell'arduino B ottenute durante il loro enrollment.
+**NOTA**: nel file autenticazione.js in chiaveA e chiaveB sono salvate la chiavi del disposito arduino A e dell'arduino B ottenute durante il loro enrollment.
