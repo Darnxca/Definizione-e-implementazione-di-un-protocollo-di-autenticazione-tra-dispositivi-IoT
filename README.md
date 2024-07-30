@@ -1,4 +1,4 @@
-# Progetto di Autenticazione IoT con IPFS e Blockchain
+# Tesi magistrale riguardando la definizione e implementazione di un protocollo di autenticazione tra dispositivi IoT utillizando SRAM, IPFS e Blockchain
 
 Questo progetto si propone di facilitare l'autenticazione tra dispositivi IoT utilizzando tecnologie decentralizzate come IPFS (InterPlanetary File System) e la blockchain. Il processo prevede l'archiviazione di informazioni sensibili su IPFS per ottenere un CID (Content Identifier), che viene quindi utilizzato per memorizzare e validare le informazioni sulla blockchain.
 
